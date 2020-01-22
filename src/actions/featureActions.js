@@ -1,13 +1,13 @@
-export const addFeature = item => {
+export const addFeature = e => {
     return {
         type: 'ADD_FEATURE',
-        payload: item
+        payload: e
     };
 };
 
-export const removeFeature = item => {
+export const removeFeature = event => {
     return {
         type: 'REMOVE_FEATURE',
-        payload: item
+        payload: event
     };
 };

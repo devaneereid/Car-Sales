@@ -19,17 +19,30 @@ export const Reducer = (state = initialState, action) => {
     console.log(state, action);
     switch (action.type) {
         case 'ADD_FEATURE':
-            return {
-                ...state,
-                title: action.payload,
-                editing: false
+            if (state.car.features.includes(action.payload)) {
+                return state;
+            } else {
+                return {
+                    ...state,
+                    car: {
+                        ...state.car,
+                        features: [...state.car.features, action.payload]
+                    }
+                };
             };
+        // console.log(state.car.features);
         case 'REMOVE_FEATURE':
             return {
                 ...state,
-                editing: !state.editing
-            };
+                car: { 
+                    ...state.car,
+                    features: state.car.features.pop(event => 
+                        event.id === action.payload
+                    )
+                }   
+            }
             default: 
                 return state;
-        }
+            // console.log(state.car.features);
+    }
 };
