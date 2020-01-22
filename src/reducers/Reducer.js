@@ -36,7 +36,7 @@ export const Reducer = (state = initialState, action) => {
                 ...state,
                 car: { 
                     ...state.car,
-                    features: state.car.features.pop(event => 
+                    features: state.car.features.push(event => 
                         event.id === action.payload
                     )
                 }   
